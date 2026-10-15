@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Seatmate, My Bestie</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--bg:#f2fbff;--ink:#1d2b4a;--mut:#5a6a8a;--card:#fff;--pink:#ff6fb5;--sun:#ffd23f;--mint:#2ed3a3;--sky:#3ba0ff;--lav:#9b6bff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a30;--ink:#eef6ff;--mut:#aebbd8;--card:#1d2848}}
+:root[data-theme="dark"]{--bg:#121a30;--ink:#eef6ff;--mut:#aebbd8;--card:#1d2848}
+html,body{background:var(--bg);color:var(--ink);font-family:'Newsreader',Georgia,serif;font-size:20px;line-height:1.6}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.025em;line-height:1.02}
+.wrap{max-width:66rem;margin:0 auto;padding:0 1.25rem}
+section{padding:5rem 0}
+.mut{color:var(--mut)}
+.hero{background:linear-gradient(135deg,var(--sky),var(--lav) 30%,var(--pink) 60%,var(--sun) 85%,var(--mint));color:#fff;min-height:88vh;align-items:center;overflow:hidden}
+.name span{display:inline-block;animation:pop .7s cubic-bezier(.2,1.4,.4,1) both;text-shadow:0 4px 0 rgba(29,43,74,.25)}
+@keyframes pop{from{opacity:0;transform:translateY(40px) scale(.5) rotate(-12deg)}to{opacity:1;transform:none}}
+.btn{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;padding:.9rem 1.6rem;border-radius:999px;border:0;cursor:pointer;transition:transform .15s;color:#1d2b4a;background:#fff;box-shadow:0 6px 0 rgba(29,43,74,.25)}
+.btn:hover{transform:translateY(-3px) rotate(-1.5deg)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.card{border-radius:1.75rem;padding:1.75rem;color:#fff;box-shadow:0 10px 0 rgba(29,43,74,.18)}
+.card h3{font-size:1.8rem;font-weight:800}
+.card p{margin-top:.6rem;font-size:1.05rem}
+.big{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.4rem,7vw,4.6rem);line-height:1}
+.note{border-radius:1.25rem;padding:1.25rem 1.4rem;background:var(--card);border:2px dashed var(--sky)}
+.note:nth-child(2n){border-color:var(--pink)}.note:nth-child(3n){border-color:var(--mint)}
+.rule{display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--card);border-radius:1.25rem;padding:1.1rem 1.4rem;border:2px solid var(--lav)}
+.sign{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;border-radius:999px;padding:.4rem 1rem;border:2px solid currentColor;background:transparent;cursor:pointer;color:var(--ink)}
+.sign.on{background:var(--mint);border-color:var(--mint);color:#fff}
+.sign.on.b{background:var(--pink);border-color:var(--pink)}
+.sign:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.page{display:none;min-height:70vh}.page.active{display:block}.hero.page.active{display:flex}
+nav{position:sticky;top:0;z-index:40;background:var(--card);padding:calc(.6rem + env(safe-area-inset-top,0px)) .75rem .6rem;display:flex;gap:.4rem;overflow-x:auto;justify-content:center;box-shadow:0 4px 0 rgba(29,43,74,.12)}
+nav a{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.95rem;white-space:nowrap;padding:.5rem 1rem;border-radius:999px;color:var(--ink);text-decoration:none;border:2px solid transparent}
+nav a:hover{border-color:var(--sky)}nav a[aria-current=page]{background:var(--sky);color:#fff}
+nav a:focus-visible{outline:3px solid var(--lav);outline-offset:2px}
+.heart{position:fixed;pointer-events:none;font-size:1.7rem;animation:fly 1.7s ease-out forwards;z-index:50}
+@keyframes fly{to{transform:translate(var(--dx),-70vh) rotate(var(--r));opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav aria-label="Pages"><a href="#home">Home</a><a href="#why">Why you</a><a href="#rules">Seat rules</a><a href="#notes">Little things</a><a href="#end">Letter</a></nav>
+
+<header class="hero page active" id="home">
+ <div class="wrap w-full text-center">
+  <p class="disp text-xl font-bold opacity-95">Seatmate. Best friend. Partner in crime.</p>
+  <h1 class="name big mt-5" style="font-size:clamp(3.4rem,15vw,10rem)" aria-label="Bestie" id="nm"></h1>
+  <p class="mt-6 text-2xl max-w-xl mx-auto">Sitting next to you is the best part of my day, so I made you a website. Yes, a whole one.</p>
+  <a href="#why" class="btn inline-block mt-8">Start here</a>
+ </div>
+</header>
+
+<section class="page" id="why">
+ <div class="wrap">
+  <h2 class="big">Why you're my bestie</h2>
+  <p class="mut mt-4 max-w-2xl">Everything here goes both ways, because you do the same stuff for me. I just wrote it down first.</p>
+  <div class="grid md:grid-cols-2 gap-6 mt-10">
+   <div class="card" style="background:var(--sky)"><h3>You make me laugh</h3><p>Class would be so boring without you. One look from you and I'm trying not to laugh in front of the teacher, and failing.</p></div>
+   <div class="card" style="background:var(--pink)"><h3>You're so sweet</h3><p>You're cute and kind, and you somehow remember the little things. You make people feel good just by being around.</p></div>
+   <div class="card" style="background:var(--mint)"><h3>You've got my back</h3><p>Whether it's homework, secrets, or a bad day, you're there. I hope you know I'm there for you too, always.</p></div>
+   <div class="card" style="background:var(--lav)"><h3>Tiny but mighty</h3><p>You may be short, but you take up the biggest space in my life. Nobody tells me off as well as you do, and I'd miss it.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="rules" style="background:linear-gradient(120deg,rgba(59,160,255,.14),rgba(255,111,181,.14),rgba(46,211,163,.14))">
+ <div class="wrap max-w-3xl">
+  <h2 class="big">The Seatmate Rules</h2>
+  <p class="mut mt-4">Official rules for the best desk in the room. Both of us have to agree. Tap your side to sign.</p>
+  <div class="grid gap-4 mt-8" id="rl"></div>
+ </div>
+</section>
+
+<section class="page" id="notes">
+ <div class="wrap">
+  <h2 class="big">Little things I notice</h2>
+  <div class="grid md:grid-cols-3 gap-5 mt-10">
+   <div class="note"><p>How you try to hold in a laugh and your whole face gives you away.</p></div>
+   <div class="note"><p>That you always know when something's wrong, even when I say I'm fine.</p></div>
+   <div class="note"><p>How you share your snacks and then pretend you didn't.</p></div>
+   <div class="note"><p>That we can talk for hours, then say nothing and it's still great.</p></div>
+   <div class="note"><p>How you cheer louder than anyone when something good happens to me.</p></div>
+   <div class="note"><p>That you make even the worst class feel okay.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="end" style="background:var(--lav);color:#fff">
+ <div class="wrap text-center max-w-3xl">
+  <h2 class="big">One more thing</h2>
+  <p class="mt-5 text-xl">Tap the envelope. This one's just for you.</p>
+  <button id="env" class="btn mt-8" style="font-size:2.4rem;padding:.8rem 1.8rem" aria-label="Open letter">💌</button>
+  <div id="letter" class="hidden mt-8 text-left rounded-3xl p-7" style="background:#fff;color:#1d2b4a">
+   <p class="italic" id="dear">Dear Bestie,</p>
+   <p class="mt-4">Thank you for being the best seatmate and the best friend. You make school fun, bad days better, and good days perfect. I hope I do the same for you. No matter where we sit next year, you're stuck with me.</p>
+   <p class="mt-4 disp font-extrabold" style="color:var(--pink)">Best friends forever,<br>your seatmate.</p>
+  </div>
+ </div>
+</section>
+
+<footer class="text-center mut py-10 text-sm">Made with love, snacks, and a lot of whispering in class.</footer>
+
+<script>
+// Put her name here
+const BESTIE="Bestie";
+document.getElementById('dear').textContent="Dear "+BESTIE+",";
+const nm=document.getElementById('nm'),cs=["#fff","#fff6b8"];
+BESTIE.split("").forEach((c,i)=>{const s=document.createElement('span');s.textContent=c;s.style.color=cs[i%2];s.style.animationDelay=(i*.09)+'s';nm.appendChild(s)});
+
+const rules=["Snacks are shared. Always. No exceptions.","Whispering is allowed. Getting caught is not.","We cover for each other, every time.","Nobody else gets the window seat.","If one of us is sad, the other one notices.","Inside jokes stay inside."];
+const rl=document.getElementById('rl');
+rules.forEach(r=>{const d=document.createElement('div');d.className='rule';
+d.innerHTML=`<p class="disp font-extrabold text-xl" style="flex:1 1 14rem">${r}</p><div class="flex gap-2"><button class="sign">Me</button><button class="sign b">You</button></div>`;
+d.querySelectorAll('.sign').forEach(b=>b.onclick=()=>{b.classList.toggle('on');b.textContent=b.classList.contains('on')?(b.classList.contains('b')?'You ✔':'Me ✔'):(b.classList.contains('b')?'You':'Me');
+if(d.querySelectorAll('.on').length==2)burst(6)});rl.appendChild(d)});
+
+function burst(n){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+for(let i=0;i<n;i++){const h=document.createElement('div');h.className='heart';h.textContent=['💖','💛','💙','💜','💚'][i%5];
+h.style.left=(10+Math.random()*80)+'vw';h.style.bottom='8vh';
+h.style.setProperty('--dx',(Math.random()*160-80)+'px');h.style.setProperty('--r',(Math.random()*80-40)+'deg');
+h.style.animationDelay=(Math.random()*.4)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),2400)}}
+document.getElementById('env').onclick=()=>{const l=document.getElementById('letter');l.classList.remove('hidden');l.scrollIntoView({behavior:'smooth',block:'center'});burst(22)};
+
+const pages=[...document.querySelectorAll('.page')];
+function go(){const t=document.getElementById((location.hash||'#home').slice(1))||document.getElementById('home');
+pages.forEach(p=>p.classList.toggle('active',p===t));
+document.querySelectorAll('nav a').forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+t.id?'page':'false'));
+scrollTo(0,0)}
+addEventListener('hashchange',go);go();
+</script>
+</body>
+</html>
